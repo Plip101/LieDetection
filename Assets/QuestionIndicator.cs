@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionIndicator : MonoBehaviour {
-    private GameObject table1, table2, table3, table4, table5, table6, table7, table8, table9, table10;
+    private GameObject table1, table2, table3, table4, table5, table6, table7, table8, table9, table10, blueshape;
     private GameObject[] tables_array;
-    int counter;
+    public int number;
     // Use this for initialization
     void Start () {
         
@@ -19,8 +20,9 @@ public class QuestionIndicator : MonoBehaviour {
         table8 = GameObject.Find("/Tabel items/Table8");
         table9 = GameObject.Find("/Tabel items/Table9");
         table10 = GameObject.Find("/Tabel items/Table10");
-        
-        counter = 0;
+        blueshape = GameObject.Find("Blue Shape");
+
+        number = 0;
     }
 	
 	// Update is called once per frame
@@ -31,12 +33,17 @@ public class QuestionIndicator : MonoBehaviour {
             };
         if (Input.GetKeyDown("space"))
         {
-            tables_array[counter].GetComponent<Renderer>().material.color = Color.red;
+            tables_array[number].GetComponent<Renderer>().material.color = Color.red;
 
-            print(counter);
-            counter += 1;
+            print(number);
+            number += 1;
 
             
         }
+        if (number == 1)
+        {
+            blueshape.GetComponent<Renderer>().material.color = Color.blue;
+        }
+        else { blueshape.GetComponent<Renderer>().material.color = Color.white; }
 	}
 }
