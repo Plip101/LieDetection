@@ -59,7 +59,7 @@ public class ChangeScene : MonoBehaviour {
         if (play == 1)
         {
             
-            if (MusicSource.volume < 1.0f)
+            if (MusicSource.volume < 0.5f)
             {
                 MusicSource.volume += 0.01f;
             }
